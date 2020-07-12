@@ -1,3 +1,4 @@
+import {DecimalMoney} from "./DecimalMoney";
 import {
     ILoanCalculationContext,
     ILoanCalculationInput,
@@ -17,8 +18,9 @@ class BasicLoanCalculator implements ILoanCalculator {
 
     public getPaymentPlan(input: ILoanCalculationInput): ILoanPaymentPlan {
         const context: ILoanCalculationContext = {
-            ...input,
-            loanAmountLeft: input.loanAmount
+            loanAmount: new DecimalMoney(input.loanAmount),
+            loanAmountLeft: new DecimalMoney(input.loanAmount),
+            loanTermInMonths: input.loanTermInMonths
         };
         const loanTerm = context.loanTermInMonths;
 
@@ -28,6 +30,7 @@ class BasicLoanCalculator implements ILoanCalculator {
             const rate = context.currentMonthInterestRate = this._interestRateProvider.getInterestRate(context);
             const installment = this._installmentCalculator.getInstallment(context);
 
+            console.log(context.loanAmountLeft, rate);
             const interestPaid = context.loanAmountLeft.mul(rate);
             const principalPaid = installment.sub(interestPaid);
 

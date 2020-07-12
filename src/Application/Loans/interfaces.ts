@@ -4,7 +4,7 @@ import {Decimal} from "decimal.js";
 export type InterestRate = Decimal;
 
 export interface ILoanCalculationInput {
-    readonly loanAmount: DecimalMoney;
+    readonly loanAmount: number | string;
     readonly loanTermInMonths: number;
 }
 
@@ -35,5 +35,5 @@ export interface IInterestRateCalculator {
 }
 
 export interface ILoanCalculator {
-    getPaymentPlan(context: ILoanCalculationInput): ILoanPaymentPlan;
+    getPaymentPlan(input: ILoanCalculationInput): ILoanPaymentPlan;
 }
