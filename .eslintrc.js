@@ -61,7 +61,10 @@ module.exports = {
                 ],
 
                 // STANDARDIZED BY:   @typescript-eslint\eslint-plugin\dist\configs\recommended.json
-                "@typescript-eslint/naming-convention": ["error"],
+                "@typescript-eslint/naming-convention": [
+                    "error",
+                    { selector: 'memberLike', modifiers: [ 'static' ], format: ['UPPER_CASE', 'camelCase'] },
+                ],
 
                 // RATIONALE:         We require "x as number" instead of "<number>x" to avoid conflicts with JSX.
                 "@typescript-eslint/consistent-type-assertions": "error",
