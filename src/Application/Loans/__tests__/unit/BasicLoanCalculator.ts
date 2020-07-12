@@ -14,7 +14,7 @@ describe('Application - Loans - BasicLoanCalculator', () => {
     describe('getPaymentPlan()', () => {
         it('should return an installment plan for each month', async () => {
             const plan = calculator.getPaymentPlan({
-                loanAmount: new DecimalMoney(10000),
+                loanAmount: 10000,
                 loanTermInMonths: 6
             });
 
@@ -53,7 +53,7 @@ describe('Application - Loans - BasicLoanCalculator', () => {
                 }
             ];
 
-            for(let month = 0; month < expected.length; month++) {
+            for (let month = 0; month < expected.length; month++) {
                 assertMoneySame(plan.installments[month].interestPaid, expected[month].interestPaid);
                 assertMoneySame(plan.installments[month].principalPaid, expected[month].principalPaid);
                 assertMoneySame(plan.installments[month].balance, expected[month].balance);
