@@ -47,4 +47,4 @@ jobs:
           cd infra
           npm ci
           npm run build
-          npm run cdk deploy --require-approval never
+          npm run cdk deploy -- --require-approval never
