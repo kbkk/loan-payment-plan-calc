@@ -27,3 +27,20 @@ jobs:
           docker build -t "$BASE_URL"/loan-calc:latest .
 
           docker push "$BASE_URL"/loan-calc:latest
+
+  deploy-cloudformation-stack:
+    name: Deploy CloudFormation stack
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build and push to ECR
+        id: deploy-cloudformation-stack
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+        run: |
+          IMAGE_URL="$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/loan-calc:latest"
+
+          cd infra

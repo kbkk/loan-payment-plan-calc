@@ -4,5 +4,5 @@ import createFastifyServer from "./Api/Http/createFastifyServer";
     const port = parseInt(process.env.PORT ?? '') || 3000;
 
     const server = createFastifyServer();
-    await server.listen(port);
+    await server.listen(port, '0.0.0.0');
 }())
