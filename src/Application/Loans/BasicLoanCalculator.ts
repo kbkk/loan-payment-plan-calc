@@ -30,7 +30,6 @@ class BasicLoanCalculator implements ILoanCalculator {
             const rate = context.currentMonthInterestRate = this._interestRateProvider.getInterestRate(context);
             const installment = this._installmentCalculator.getInstallment(context);
 
-            console.log(context.loanAmountLeft, rate);
             const interestPaid = context.loanAmountLeft.mul(rate);
             const principalPaid = installment.sub(interestPaid);
 
