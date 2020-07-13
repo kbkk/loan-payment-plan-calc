@@ -34,8 +34,7 @@ export class InfraStack extends cdk.Stack {
             memoryLimitMiB: 512,
             publicLoadBalancer: true,
             desiredCount: 2,
-            listenerPort: 80,
-
+            listenerPort: 80
         });
 
         service.targetGroup.configureHealthCheck({
