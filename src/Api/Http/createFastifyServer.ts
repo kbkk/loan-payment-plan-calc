@@ -5,7 +5,7 @@ import LoanCalculatorFactory from "../../Application/Loans/LoanCalculatorFactory
 export default function createFastifyServer(): fastify.FastifyInstance {
     const server = fastify.fastify({
         logger: {
-            level: 'error'
+            level: 'info'
         }
     });
 
@@ -18,6 +18,10 @@ export default function createFastifyServer(): fastify.FastifyInstance {
         {schema: EstimateLoanController.SCHEMA},
         estimateLoanController.execute.bind(estimateLoanController)
     );
+
+    server.get('/', async (req, res) => {
+        await res.send({status: 'OK'});
+    });
 
     return server;
 }

@@ -23,7 +23,7 @@ describe('Application - Loans - EstimateLoanCalculator', () => {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
-                    loanTermInMonths: 12,
+                    loanTermInMonths: 6,
                     loanAmount: 10000
                 })
             });

@@ -9,7 +9,7 @@ class LoanCalculatorFactory {
     public fromLoanType(loanType: LoanTypes): ILoanCalculator {
         if(loanType === 'housing') {
             return new BasicLoanCalculator(
-                new FixedInterestRateCalculator(0.1),
+                new FixedInterestRateCalculator(0.035),
                 new FixedInstallmentCalculator()
             );
         }
