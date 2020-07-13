@@ -1,8 +1,7 @@
 name: Master
 on:
   push:
-    #todo: run only on master
-    ignore-branches:
+    branches:
       master
 
 jobs:
