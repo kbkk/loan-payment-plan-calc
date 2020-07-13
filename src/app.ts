@@ -5,4 +5,4 @@ import createFastifyServer from "./Api/Http/createFastifyServer";
 
     const server = createFastifyServer();
     await server.listen(port, '0.0.0.0');
-}())
+}());

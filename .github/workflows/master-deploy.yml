@@ -44,3 +44,5 @@ jobs:
           IMAGE_URL="$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/loan-calc:latest"
 
           cd infra
+          npm run build
+          npm run cdk deploy
