@@ -1,3 +1,6 @@
+### Deployed URL
+http://infra-loanc-1nwnpepcrf95r-676988869.eu-west-1.elb.amazonaws.com/
+
 ### Install & Test
 ```shell script
 $ npm install
