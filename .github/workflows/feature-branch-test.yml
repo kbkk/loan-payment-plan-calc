@@ -57,6 +57,7 @@ jobs:
             Infrastructure for commit `${{ github.sha }}`:
             <details>
               <summary>Click to see the log</summary>
+
               ```yml
               ${{ steps.showinfrastructure.outputs.infra }}
               ```
