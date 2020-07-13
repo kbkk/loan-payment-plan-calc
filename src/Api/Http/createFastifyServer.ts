@@ -5,7 +5,7 @@ import LoanCalculatorFactory from "../../Application/Loans/LoanCalculatorFactory
 export default function createFastifyServer(): fastify.FastifyInstance {
     const server = fastify.fastify({
         logger: {
-            level: 'error'
+            level: 'info'
         }
     });
 
