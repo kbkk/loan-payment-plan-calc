@@ -19,5 +19,9 @@ export default function createFastifyServer(): fastify.FastifyInstance {
         estimateLoanController.execute.bind(estimateLoanController)
     );
 
+    server.get('/', async (req, res) => {
+        await res.send({status: 'OK'});
+    });
+
     return server;
 }
